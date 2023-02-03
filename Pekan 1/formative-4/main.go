@@ -19,6 +19,7 @@ func main() {
 		}
 	}
 
+	fmt.Println()
 	//Soal 2
 	var nilaiSoal2 = 10
 	for x := 1; x <= nilaiSoal2; x++ {
@@ -28,6 +29,7 @@ func main() {
 		fmt.Println()
 	}
 
+	fmt.Println()
 	//Soal 3
 	var kalimat = [...]string{"aku", "dan", "saya", "sangat", "senang", "belajar", "golang"}
 	var newKalimat = kalimat[2:]
@@ -37,10 +39,11 @@ func main() {
 	var sayuran = []string{}
 	sayuran = append(sayuran, "Bayam", "Buncis", "Kangkun", "Kubis", "Seledri", "Tauge", "Timun")
 
-	for z, ind := range sayuran {
-		fmt.Println(z, ind)
+	for ind, z := range sayuran {
+		fmt.Println(ind+1, z)
 	}
 
+	fmt.Println()
 	//Soal 5
 	var satuan = map[string]int{
 		"panjang": 7,
@@ -48,7 +51,7 @@ func main() {
 		"tinggi":  6,
 	}
 	for a, b := range satuan {
-		fmt.Println(a, b)
+		fmt.Println(a, "=", b)
 	}
 
 	var panjang int = satuan["panjang"]
