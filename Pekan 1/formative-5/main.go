@@ -31,22 +31,20 @@ func main() {
 	fmt.Println()
 	//Soal 4
 	var dataFilm = []map[string]string{}
-	var tambahDataFilm = func(film string, duration string, genre string, year string) (string, string, string, string) {
-		dataFilm = []map[string]string{
-			{
-				"film":     film,
-				"duration": duration,
-				"genre":    genre,
-				"year":     year,
-			},
-		}
-		return film, duration, genre, year
+	var tambahDataFilm = func(film, duration, genre, year string) {
+		dataFilm = append(dataFilm, map[string]string{
+			"film":     film,
+			"duration": duration,
+			"genre":    genre,
+			"year":     year,
+		})
 	}
 	tambahDataFilm("LOTR", "2 jam", "action", "1999")
 	tambahDataFilm("avenger", "2 jam", "action", "2019")
 	tambahDataFilm("spiderman", "2 jam", "action", "2004")
 	tambahDataFilm("juon", "2 jam", "horror", "2004")
 
+	fmt.Println()
 	for _, item := range dataFilm {
 		fmt.Println(item)
 	}
@@ -68,7 +66,14 @@ func volumeBalok(p int, l int, t int) int {
 }
 
 func introduce(name string, gender string, job string, age string) (textIntroduce string) {
-	textIntroduce = `Pak ` + name + ` adalah seorang ` + job + ` yang berusia ` + age
+	calling := func() string {
+		if gender == "perempuan" {
+			return "Bu"
+		} else {
+			return "Pak"
+		}
+	}
+	textIntroduce = fmt.Sprintf("%s %s adalah seorang %s yang berusia %s tahun", calling(), name, job, age)
 	return textIntroduce
 }
 
